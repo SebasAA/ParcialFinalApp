@@ -8,7 +8,6 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="10dp"
     android:layout_margin="6dp"
     cardview:cornerradius="6dp">
 
@@ -42,7 +41,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:text="Producto"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,15 +52,15 @@
         <TextView
             android:id="@+id/venta_nombre_cliente"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="17dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
 
-            android:layout_marginTop="8dp"
-            android:text="Precio unitario - Ganancia"
+            android:layout_marginTop="4dp"
+            android:text="Precio unitario"
             android:textAlignment="gravity"
             android:textSize="12sp"
             android:textStyle="italic"
@@ -82,9 +81,9 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
 
-            android:text="$2 - $0.25"
+            android:text="$2"
             android:textAlignment="gravity"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#000"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -98,26 +97,21 @@
             android:id="@+id/imageView"
             android:layout_width="76dp"
             android:layout_height="61dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/cutecharms" />
+            app:srcCompat="@drawable/cutecharms"
+            cardview:layout_editor_absoluteX="8dp"
+            cardview:layout_editor_absoluteY="5dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="55dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"
-            android:layout_marginRight="64dp"
             android:layout_marginTop="64dp"
             android:background="@drawable/rounded_rectangle_grey"
             android:padding="4dp"
             android:text="35"
             android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            cardview:layout_editor_absoluteX="245dp" />
 
         <ImageView
             android:id="@+id/imageView2"
