@@ -1,6 +1,8 @@
 package com.example.pdmsebasa.parcial3.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -53,7 +55,6 @@ public class MainActivityUser extends AppCompatActivity{
         NavigationView navigationView = findViewById(R.id.navigationView);
         navigationView.getMenu().clear();
         navigationView.inflateMenu(R.menu.drawer_menu_user);
-        Menu menu = navigationView.getMenu();
 
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
@@ -72,6 +73,7 @@ public class MainActivityUser extends AppCompatActivity{
                         openAboutUsActivity();
                         break;
                     case R.id.drawer_logout_item:
+                        logout();
                         break;
                 }
                 drawerLayout.closeDrawers();
@@ -115,5 +117,16 @@ public class MainActivityUser extends AppCompatActivity{
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("FIRST", false);
+    }
+
+    private void logout(){
+        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(getString(R.string.key_token));
+        editor.apply();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
