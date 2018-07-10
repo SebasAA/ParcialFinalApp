@@ -4,5 +4,9 @@
     y figuras personalizadas utilizando el material llamda Porcelanda Fría, también contamos con
     una variedad de productos sublimados que se personalizan con el diseño que el cliente desee,
     tales como camisas, tazas, botellas, jaras, entre otros.</string>
+    <string name="ingrese_nickname">Ingrese nickname</string>
+    <string name="ingrese_password">Ingrese password</string>
+    <string name="ingrese_otra_vez_password">Ingrese otra vez password</string>
+    <string name="register">REGISTER</string>
 
 </resources>
