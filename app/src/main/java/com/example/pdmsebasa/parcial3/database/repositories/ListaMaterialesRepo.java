@@ -1,10 +1,13 @@
 package com.example.pdmsebasa.parcial3.database.repositories;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import com.example.pdmsebasa.parcial3.database.Database;
 import com.example.pdmsebasa.parcial3.database.daos.ListaMaterialesDAO;
 import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
+
+import java.util.List;
 
 /**
  * Repositiorio de manejo de la base de datos para ListaMateriales
@@ -49,4 +52,15 @@ public class ListaMaterialesRepo {
     public void deleteAll() {
         mListaMaterialesDao.deleteAll();
     }
+
+
+    /**
+     * Obtiene la lista de todos los ide de materiales que pertenecen a un producto
+     *
+     * @param id id del producto
+     */
+    public LiveData<List<ListaMateriales>> getAllByProducto(int id) {
+        return mListaMaterialesDao.getByIdProducto(id);
+    }
+
 }

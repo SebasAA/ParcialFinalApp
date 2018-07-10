@@ -1,10 +1,13 @@
 package com.example.pdmsebasa.parcial3.database.repositories;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
 
 import com.example.pdmsebasa.parcial3.database.Database;
 import com.example.pdmsebasa.parcial3.database.daos.MaterialDAO;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
+
+import java.util.List;
 
 /**
  * Repositiorio de manejo de la base de datos para materiales
@@ -48,5 +51,12 @@ public class MaterialRepo {
      */
     public void deleteAll() {
         mMaterialDao.deleteAll();
+    }
+
+    /**
+     * Obtiene la lista de todos los materiales
+     */
+    public LiveData<List<Material>> getAll() {
+        return mMaterialDao.getAll();
     }
 }

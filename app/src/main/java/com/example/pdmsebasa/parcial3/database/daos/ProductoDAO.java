@@ -48,6 +48,6 @@ public interface ProductoDAO {
      * @return Live data de productos
      */
     @Query("SELECT * FROM producto ORDER BY name ASC")
-    LiveData<List<Producto>> getAllDose();
+    LiveData<List<Producto>> getAll();
 
 }

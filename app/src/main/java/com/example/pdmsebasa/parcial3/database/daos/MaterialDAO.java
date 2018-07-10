@@ -48,7 +48,7 @@ public interface MaterialDAO {
      * @return Live data de materiales
      */
     @Query("SELECT * FROM material ORDER BY name ASC")
-    LiveData<List<Material>> getAllDose();
+    LiveData<List<Material>> getAll();
 
 
 }
