@@ -3,7 +3,7 @@ package com.example.pdmsebasa.parcial3.database.entities;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "materiales")
+@Entity(tableName = "listamateriales")
 public class ListaMateriales {
     @PrimaryKey(autoGenerate = true)
     private String id;

@@ -7,6 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Producto {
     @PrimaryKey
     private String id;
+    private String name;
     private int id_lista_materiales;
     private float costo;
     private float price;
@@ -14,8 +15,9 @@ public class Producto {
     private int sold;
     private String category;
 
-    public Producto(String id, int id_lista_materiales, float costo, float price, int stock, int sold, String category) {
+    public Producto(String id, String name, int id_lista_materiales, float costo, float price, int stock, int sold, String category) {
         this.id = id;
+        this.name = name;
         this.id_lista_materiales = id_lista_materiales;
         this.price = price;
         this.stock = stock;
@@ -78,5 +80,13 @@ public class Producto {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
