@@ -13,5 +13,13 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bindViews();
     }
+
+
+    private void bindViews(){
+        //username=findViewById();
+        //password=findViewById();
+    }
+
 }
