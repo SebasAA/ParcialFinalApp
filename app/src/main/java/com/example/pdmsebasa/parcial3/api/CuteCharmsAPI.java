@@ -21,5 +21,8 @@ public interface CuteCharmsAPI {
 
   //  @GET("/api/products")
 
+    @FormUrlEncoded
+    @POST("api/user")
+    Call<String> registerUser(@Field("nickname") String nickname,@Field("password") String password, @Field("rol_type") String role);
 
 }

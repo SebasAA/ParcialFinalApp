@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.pdmsebasa.parcial3.R;
 import com.example.pdmsebasa.parcial3.api.CuteCharmsAPI;
 import com.example.pdmsebasa.parcial3.api.deserializers.TokenDeserializer;
+import com.example.pdmsebasa.parcial3.utils.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -58,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         if (user.equals("") || pass.equals("")) {
             Toast.makeText(this, R.string.text_empty_field_error, Toast.LENGTH_SHORT).show();
         } else {
-            login(user, pass);
+            login(user, Util.sha1(pass));
         }
     }
 
