@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
-    tools:context=".LoginActivity"
+    tools:context=".activities.LoginActivity"
     android:background="@color/colorPrimaryDark"
     >
 
@@ -36,7 +36,8 @@
                     android:layout_height="110dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/canvas" />
+                    android:src="@drawable/canvas"
+                    android:layout_alignParentLeft="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
