@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity{
 
         setupToolbar();
         setupDrawer();
-        setHomeFragment();
     }
 
     private void setupToolbar(){
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity{
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
             navigationView.getMenu().performIdentifierAction(R.id.drawer_home_item, 0);
+            setHomeFragment();
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

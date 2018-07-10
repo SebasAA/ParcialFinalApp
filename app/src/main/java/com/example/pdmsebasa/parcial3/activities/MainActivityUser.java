@@ -1,5 +1,6 @@
 package com.example.pdmsebasa.parcial3.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,7 +38,6 @@ public class MainActivityUser extends AppCompatActivity{
 
         setupToolbar();
         setupDrawer();
-        setProductFragment();
     }
 
     private void setupToolbar(){
@@ -58,6 +58,7 @@ public class MainActivityUser extends AppCompatActivity{
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
             navigationView.getMenu().performIdentifierAction(R.id.drawer_home_item, 0);
+            setProductFragment();
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -87,7 +88,8 @@ public class MainActivityUser extends AppCompatActivity{
     }
 
     private void openAboutUsActivity(){
-
+        Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);
     }
 
     @Override
