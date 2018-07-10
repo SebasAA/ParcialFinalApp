@@ -8,24 +8,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pdmsebasa.parcial3.R;
-import com.example.pdmsebasa.parcial3.database.entities.Material;
+import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHolder> {
+public class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapter.ViewHolder> {
 
-    private List<Material> list = new ArrayList<>();
+    private List<Producto> list = new ArrayList<>();
 
-    public MaterialAdapter(List<Material> list) {
+    public ProductoUserAdapter(List<Producto> list) {
         this.list = list;
     }
 
     /**
      * @param list Lista a mostrar en {@link RecyclerView}
      */
-    public void setList(List<Material> list) {
+    public void setList(List<Producto> list) {
         this.list = list;
     }
 
@@ -33,16 +33,17 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.generic_cardview, parent, false);
+        View view = inflater.inflate(R.layout.producto_item_user, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Material MaterialItem = list.get(position);
+        Producto ProductoItem = list.get(position);
         String price_and_gain;
-        price_and_gain = "$" + MaterialItem.getCosto();
-        holder.name.setText(MaterialItem.getName());
+        Float gain = ProductoItem.getPrice() - ProductoItem.getCosto();
+        price_and_gain = "$" + ProductoItem.getPrice() + " - " + truncFloat(gain);
+        holder.name.setText(ProductoItem.getName());
         holder.price.setText(price_and_gain);
     }
 
@@ -61,10 +62,8 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.generic_cardview_textView);
-            price = itemView.findViewById(R.id.generic_cardview_textView);//change id later
-
-
+            name = itemView.findViewById(R.id.nombreProducto);
+            price = itemView.findViewById(R.id.precioProducto);//change id later
         }
     }
 }
