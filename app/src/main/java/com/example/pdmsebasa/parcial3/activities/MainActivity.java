@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            getWindow().setEnterTransition(new Fade().setDuration(1000));
+            getWindow().setEnterTransition(new Explode());
+            getWindow().setExitTransition(null);
+            getWindow().setAllowEnterTransitionOverlap(true);
         }
         setContentView(R.layout.main_activity);
     }
