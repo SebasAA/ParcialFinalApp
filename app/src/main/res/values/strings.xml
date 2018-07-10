@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Parcial3</string>
+    <string name="app_name">Cute Charms</string>
+    <string name="key_token">TOKEN</string>
+    <string name="text_empty_field_error">Fields must not be empty</string>
 </resources>
