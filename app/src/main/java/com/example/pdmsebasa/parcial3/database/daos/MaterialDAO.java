@@ -41,7 +41,7 @@ public interface MaterialDAO {
      * @param id id del material a eliminar
      */
     @Query("DELETE FROM material WHERE id=:id")
-    void deleteById(int id);
+    void deleteById(String id);
 
     /**
      * Obtiene la lista de todos los materiales ordenado por nombre en orden ascendente
