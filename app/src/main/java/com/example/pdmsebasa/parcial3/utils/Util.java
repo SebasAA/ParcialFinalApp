@@ -1,5 +1,10 @@
 package com.example.pdmsebasa.parcial3.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.example.pdmsebasa.parcial3.R;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -27,4 +32,9 @@ public class Util {
         return getHash(txt, "SHA1");
     }
 
+    public static String getToken(Context context){
+        SharedPreferences preferences=context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+        //return preferences.getString
+        return null;
+    }
 }

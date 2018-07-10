@@ -2,6 +2,7 @@ package com.example.pdmsebasa.parcial3.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -29,6 +30,16 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(v->login());
     }
 
-    private void login(){}
+    private void login(){
+        String user, pass;
+        user=username.getText().toString();
+        pass=password.getText().toString();
+        if(user.equals("")&&pass.equals("")){
+            //Snackbar.make()
+        }else{
+
+        }
+    }
+
 
 }
