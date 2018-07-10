@@ -2,10 +2,12 @@ package com.example.pdmsebasa.parcial3.database.entities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity(tableName = "material")
 public class Material {
     @PrimaryKey
+    @NonNull
     private String id;
     private String name;
     private int stock;

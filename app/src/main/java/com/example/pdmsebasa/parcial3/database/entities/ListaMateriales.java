@@ -6,24 +6,24 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "listamateriales")
 public class ListaMateriales {
     @PrimaryKey(autoGenerate = true)
-    private String id;
+    private int id;
     private int id_producto;
     private int id_material;
     private int cantidad;
 
 
-    public ListaMateriales(String id, int id_producto, int id_material, int cantidad) {
+    public ListaMateriales(int id, int id_producto, int id_material, int cantidad) {
         this.id = id;
         this.id_producto = id_producto;
         this.id_material = id_material;
         this.cantidad = cantidad;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

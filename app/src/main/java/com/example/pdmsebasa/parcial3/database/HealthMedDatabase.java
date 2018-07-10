@@ -5,13 +5,14 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.example.pdmsebasa.parcial3.database.daos.ListaMaterialesDAO;
 import com.example.pdmsebasa.parcial3.database.daos.MaterialDAO;
 import com.example.pdmsebasa.parcial3.database.daos.ProductoDAO;
 import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
-@Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 2)
+@Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1)
 public abstract class HealthMedDatabase extends RoomDatabase {
 
     private static HealthMedDatabase INSTANCE;
@@ -33,5 +34,5 @@ public abstract class HealthMedDatabase extends RoomDatabase {
 
     public abstract ProductoDAO productoDAO();
 
-    public abstract ListaMateriales listaMateriales();
+    public abstract ListaMaterialesDAO listaMaterialesDAO();
 }
