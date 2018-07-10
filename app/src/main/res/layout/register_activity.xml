@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
     tools:context=".activities.RegisterActivity"
+    android:layout_gravity="center"
     android:id="@+id/register"
     android:background="@color/colorPrimary"
     >
@@ -34,23 +35,13 @@
                     android:id="@+id/logo2"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/newaccount" />
+                    android:src="@drawable/ic_new_account"
+                    android:layout_alignParentLeft="true" />
 
 
             </RelativeLayout>
-
-            <TextView
-                android:text="Registrarse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/ThemeOverlay.AppCompat"
-                android:layout_below="@id/imagepaper"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-
 
 
             <!-- Email Label -->
@@ -68,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:hint="Ingrese nickname"
+                    android:hint="@string/ingrese_nickname"
                     android:textSize="16dp"
                     android:textColor="#000000"
                     />
@@ -88,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:hint="Ingrese password"
+                    android:hint="@string/ingrese_password"
                     android:textSize="16dp"
                     android:textColor="#000000"
                     />
@@ -107,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:hint="Ingrese otra vez password"
+                    android:hint="@string/ingrese_otra_vez_password"
                     android:textSize="16dp"
                     android:textColor="#000000"
                     />
@@ -126,7 +117,7 @@
                 android:layout_marginBottom="5dp"
 
                 android:background="@color/colorAccent"
-                android:text="REGISTER"
+                android:text="@string/register"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
