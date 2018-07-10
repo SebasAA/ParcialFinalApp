@@ -44,25 +44,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void bindViews(){
-        username=findViewById(R.id.input_nickname);
-        password=findViewById(R.id.input_password);
-        button=findViewById(R.id.btn_login);
-        button.setOnClickListener(v-> onClickLogin());
+    private void bindViews() {
+        username = findViewById(R.id.input_nickname);
+        password = findViewById(R.id.input_password);
+        button = findViewById(R.id.btn_login);
+        button.setOnClickListener(v -> onClickLogin());
     }
 
-    private void onClickLogin(){
+    private void onClickLogin() {
         String user, pass;
-        user=username.getText().toString();
-        pass=password.getText().toString();
-        if(user.equals("")||pass.equals("")){
+        user = username.getText().toString();
+        pass = password.getText().toString();
+        if (user.equals("") || pass.equals("")) {
             Toast.makeText(this, R.string.text_empty_field_error, Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             login(user, pass);
         }
     }
 
-    private void login(String user, String pass){
+    private void login(String user, String pass) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(String.class, new TokenDeserializer())
                 .create();
@@ -70,11 +70,11 @@ public class LoginActivity extends AppCompatActivity {
                 .baseUrl(CuteCharmsAPI.END_POINT)
                 .addConverterFactory(GsonConverterFactory.create(gson));
         Retrofit retrofit = builder.build();
-        Call<String> call=retrofit.create(CuteCharmsAPI.class).getToken(user,pass);
+        Call<String> call = retrofit.create(CuteCharmsAPI.class).getToken(user, pass);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                if(response.code()==200){
+                if (response.code() == 200) {
                     saveToken(response.body());
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
@@ -88,9 +88,46 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveToken(String token){
-        SharedPreferences preferences=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
+    private void getRol(String token) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(String.class, new TokenDeserializer())
+                .create();
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(CuteCharmsAPI.END_POINT)
+                .addConverterFactory(GsonConverterFactory.create(gson));
+        Retrofit retrofit = builder.build();
+        Call<String> call = retrofit.create(CuteCharmsAPI.class).getUserRol("Bearer " + token);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.code() == 200) {
+                    Intent intent;
+                    boolean isAdmin = false;
+                    if (!response.body().equals("")) {
+                        isAdmin = true;
+                        intent = new Intent(LoginActivity.this, MainActivity.class);
+                    /*}else{
+                        //intent=new Intent(LoginActivity.this,)
+                    }*/
+                        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean(getString(R.string.key_admin), isAdmin);
+                        editor.apply();
+                        startActivity(intent);
+                    }
+                }
+
+            }
+            @Override
+            public void onFailure (Call < String > call, Throwable t){
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void saveToken(String token) {
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
         editor.putString(getString(R.string.key_token), token);
         editor.apply();
     }

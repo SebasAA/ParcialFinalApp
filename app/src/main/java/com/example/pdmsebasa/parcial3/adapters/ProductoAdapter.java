@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
+public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder> {
 
     private List<Producto> list = new ArrayList<>();
 
@@ -46,7 +46,42 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
         price_and_gain = "$"+ ProductoItem.getPrice() + " - " + truncFloat(gain);
         holder.name.setText(ProductoItem.getName());
         holder.price.setText(price_and_gain);
+        holder.quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quantityOnClick(list.get(position));
+            }
+        });
+        holder.less.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lessOnClick(list.get(position));
+            }
+        });
+
+        holder.more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moreOnClick(list.get(position));
+            }
+        });
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnClick(list.get(position));
+            }
+        });
     }
+
+    protected abstract void itemOnClick(Producto producto);
+
+    protected abstract void moreOnClick(Producto producto);
+
+    protected abstract void lessOnClick(Producto producto);
+
+    public abstract void quantityOnClick(Producto producto);
 
     @Override
     public int getItemCount() {
@@ -56,9 +91,10 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView less, more;
         private TextView name, price, quantity;
-
+        private View itemView;
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView = itemView;
             name = itemView.findViewById(R.id.venta_precio);
             price = itemView.findViewById(R.id.venta_nombre_cliente2);//change id later
             quantity = itemView.findViewById(R.id.textView2);
