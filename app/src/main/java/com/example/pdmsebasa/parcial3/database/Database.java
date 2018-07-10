@@ -1,6 +1,5 @@
 package com.example.pdmsebasa.parcial3.database;
 
-import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
@@ -12,25 +11,25 @@ import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
-@Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1)
+@android.arch.persistence.room.Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1)
 /**
  *Clase para la creacion de la base de datos
  */
-public abstract class HealthMedDatabase extends RoomDatabase {
+public abstract class Database extends RoomDatabase {
 
-    private static HealthMedDatabase INSTANCE;
+    private static Database INSTANCE;
 
     /**
      * Obtiene una instancia de la base de datos
      *
      * @param context Contexto
      */
-    public static HealthMedDatabase getDatabase(final Context context) {
+    public static Database getDatabase(final Context context) {
         if (INSTANCE == null) {
-            synchronized (HealthMedDatabase.class) {
+            synchronized (Database.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            HealthMedDatabase.class, "parcial_final_database")
+                            Database.class, "parcial_final_database")
                             .fallbackToDestructiveMigration().build();
                 }
             }

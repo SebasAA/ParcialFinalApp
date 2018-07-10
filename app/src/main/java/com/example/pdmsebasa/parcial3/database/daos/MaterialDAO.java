@@ -41,14 +41,14 @@ public interface MaterialDAO {
      * @param id id del material a eliminar
      */
     @Query("DELETE FROM material WHERE id=:id")
-    void deleteById(int id);
+    void deleteById(String id);
 
     /**
      * Obtiene la lista de todos los materiales ordenado por nombre en orden ascendente
      * @return Live data de materiales
      */
     @Query("SELECT * FROM material ORDER BY name ASC")
-    LiveData<List<Material>> getAllDose();
+    LiveData<List<Material>> getAll();
 
 
 }

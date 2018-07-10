@@ -1,6 +1,7 @@
 package com.example.pdmsebasa.parcial3.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.transition.Explode;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.example.pdmsebasa.parcial3.R;
 
@@ -49,9 +52,11 @@ public class LoginActivity extends AppCompatActivity {
         user=username.getText().toString();
         pass=password.getText().toString();
         if(user.equals("")||pass.equals("")){
-            Snackbar.make(scrollView, "no", Snackbar.LENGTH_LONG);
+            Toast.makeText(this, R.string.text_empty_field_error, Toast.LENGTH_SHORT).show();
         }else{
-            Snackbar.make(scrollView, "hola", Snackbar.LENGTH_LONG);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 
