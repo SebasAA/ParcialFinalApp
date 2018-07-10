@@ -18,10 +18,10 @@ public class ProductoModel {
     private String name;
     @SerializedName("cost")
     @Expose
-    private Integer cost;
+    private Float cost;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private Float price;
     @SerializedName("stock")
     @Expose
     private Integer stock;
@@ -59,19 +59,19 @@ public class ProductoModel {
         this.name = name;
     }
 
-    public Integer getCost() {
+    public Float getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(Float cost) {
         this.cost = cost;
     }
 
-    public Integer getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

@@ -35,7 +35,7 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.producto_item_user, parent, false);
+        View view = inflater.inflate(R.layout.producto_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -95,7 +95,7 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
         private View itemView;
         public ViewHolder(View itemView) {
             super(itemView);
-            itemView = itemView;
+            this.itemView = itemView;
             name = itemView.findViewById(R.id.venta_precio);
             price = itemView.findViewById(R.id.venta_nombre_cliente2);//change id later
             quantity = itemView.findViewById(R.id.textView2);
