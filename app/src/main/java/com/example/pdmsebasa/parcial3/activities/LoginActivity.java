@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         String user, pass;
         user=username.getText().toString();
         pass=password.getText().toString();
-        if(user.equals("")&&pass.equals("")){
+        if(user.equals("")||pass.equals("")){
             Snackbar.make(scrollView, "no", Snackbar.LENGTH_LONG);
         }else{
             Snackbar.make(scrollView, "hola", Snackbar.LENGTH_LONG);
