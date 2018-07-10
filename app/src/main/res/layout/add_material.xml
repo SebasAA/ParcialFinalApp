@@ -48,6 +48,7 @@
             android:layout_marginStart="72dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_rectangle_grey"
+            android:gravity="center"
             android:padding="4dp"
             android:text="NUEVO MATERIAL"
             android:textAlignment="center"
@@ -67,11 +68,11 @@
 
         <EditText
             android:id="@+id/input_material"
-            android:layout_width="wrap_content"
+            android:layout_width="245dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="68dp"
             android:hint="Nombre del material"
             android:inputType="text"
             android:textColor="#000000"
@@ -88,32 +89,32 @@
             android:layout_marginStart="16dp"
             android:gravity="center"
             android:text="Precio Unitario"
-            android:textColor="@android:color/black"
-            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="67dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginRight="156dp"
-            android:layout_marginTop="156dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:layout_marginTop="152dp"
             android:gravity="center"
             android:text="Cantidad"
-            android:textColor="@android:color/black"
-            android:textStyle="italic"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editText2"
-            android:layout_width="36dp"
+            android:layout_width="98dp"
             android:layout_height="36dp"
-            android:layout_marginBottom="28dp"
-            android:layout_marginLeft="44dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginBottom="48dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:background="@drawable/rounded_rectangle_grey"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -125,9 +126,9 @@
             android:id="@+id/editText3"
             android:layout_width="55dp"
             android:layout_height="28dp"
-            android:layout_marginBottom="36dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginBottom="60dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginRight="44dp"
             android:background="@drawable/rounded_rectangle_grey"
             android:ems="10"
             android:inputType="number"
@@ -138,12 +139,10 @@
         <ImageView
             android:layout_width="28dp"
             android:layout_height="27dp"
-            android:layout_marginBottom="36dp"
-            android:layout_marginLeft="56dp"
-            android:layout_marginStart="56dp"
+            android:layout_marginBottom="16dp"
             android:src="@drawable/plus"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editText2" />
+            tools:layout_editor_absoluteX="0dp" />
 
 
         <ImageView
@@ -151,8 +150,8 @@
             android:layout_width="28dp"
             android:layout_height="27dp"
             android:layout_marginBottom="36dp"
-            android:layout_marginEnd="132dp"
-            android:layout_marginRight="132dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
             android:src="@drawable/minus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
