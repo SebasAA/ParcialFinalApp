@@ -11,4 +11,7 @@
     <string name="ingrese_otra_vez_password">Enter password again</string>
     <string name="register">REGISTER</string>
     <string name="key_admin">ADMIN</string>
+    <string name="text_password_match_error">Passwords do not match</string>
+    <string name="text_user_created">User created</string>
+    <string name="text_wrong_credentials_error">Wrong credentials</string>
 </resources>

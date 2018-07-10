@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.pdmsebasa.parcial3.R;
 import com.example.pdmsebasa.parcial3.api.CuteCharmsAPI;
 import com.example.pdmsebasa.parcial3.api.deserializers.TokenDeserializer;
+import com.example.pdmsebasa.parcial3.utils.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -49,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.input_password);
         button = findViewById(R.id.btn_login);
         button.setOnClickListener(v -> onClickLogin());
+
+        AppCompatButton registerbutton = findViewById(R.id.btn_register);
+        registerbutton.setOnClickListener(v -> openRegisterActivity());
     }
 
     private void onClickLogin() {
@@ -58,8 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         if (user.equals("") || pass.equals("")) {
             Toast.makeText(this, R.string.text_empty_field_error, Toast.LENGTH_SHORT).show();
         } else {
+            String encrypted = Util.sha1(pass);
             login(user, pass);
         }
+    }
+
+    private void openRegisterActivity(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private void login(String user, String pass) {
@@ -75,9 +85,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
-                    String token=response.body();
-                    saveToken(token);
-                    getRol(token);
+                    saveToken(response.body());
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(), R.string.text_wrong_credentials_error, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -102,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
                     Intent intent;
-                    boolean isAdmin;
+                    boolean isAdmin = false;
                     if (!response.body().equals("")) {
                         isAdmin = true;
                         intent = new Intent(LoginActivity.this, MainActivity.class);
