@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.input_password);
         button = findViewById(R.id.btn_login);
         button.setOnClickListener(v -> onClickLogin());
+
+        AppCompatButton registerbutton = findViewById(R.id.btn_register);
+        registerbutton.setOnClickListener(v -> openRegisterActivity());
     }
 
     private void onClickLogin() {
@@ -59,8 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         if (user.equals("") || pass.equals("")) {
             Toast.makeText(this, R.string.text_empty_field_error, Toast.LENGTH_SHORT).show();
         } else {
-            login(user, Util.sha1(pass));
+            String encrypted = Util.sha1(pass);
+            login(user, pass);
         }
+    }
+
+    private void openRegisterActivity(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private void login(String user, String pass) {
@@ -79,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                     saveToken(response.body());
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
+                }else{
+                    Toast.makeText(getApplicationContext(), R.string.text_wrong_credentials_error, Toast.LENGTH_SHORT).show();
                 }
             }
 

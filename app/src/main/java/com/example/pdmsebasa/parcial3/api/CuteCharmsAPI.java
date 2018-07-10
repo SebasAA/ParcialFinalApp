@@ -23,6 +23,6 @@ public interface CuteCharmsAPI {
 
     @FormUrlEncoded
     @POST("api/user")
-    Call<String> registerUser(@Field("nickname") String nickname,@Field("password") String password, @Field("rol_type") String role);
+    Call<Void> registerUser(@Field("nickname") String nickname,@Field("password") String password, @Field("rol_type") String role);
 
 }
