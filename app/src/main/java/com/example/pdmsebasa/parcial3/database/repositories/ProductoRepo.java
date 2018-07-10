@@ -7,7 +7,7 @@ import com.example.pdmsebasa.parcial3.database.daos.ProductoDAO;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
 /**
- * Repositiorio de manejo de la base de datos para Productoes
+ * Repositiorio de manejo de la base de datos para Productos
  */
 public class ProductoRepo {
     private ProductoDAO mProductoDao;
