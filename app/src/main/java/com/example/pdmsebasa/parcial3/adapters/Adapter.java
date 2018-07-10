@@ -20,6 +20,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         this.list = list;
     }
 
+    /**
+     * @param list Lista a mostrar en {@link RecyclerView}
+     */
+    public void setList(List<String> list){
+        this.list = list;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
