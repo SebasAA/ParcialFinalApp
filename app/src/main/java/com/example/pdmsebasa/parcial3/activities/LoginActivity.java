@@ -75,9 +75,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
-                    saveToken(response.body());
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
+                    String token=response.body();
+                    saveToken(token);
+                    getRol(token);
                 }
             }
 
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
                     Intent intent;
-                    boolean isAdmin = false;
+                    boolean isAdmin;
                     if (!response.body().equals("")) {
                         isAdmin = true;
                         intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -28,6 +28,7 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
      */
     public void setList(List<Producto> list){
         this.list = list;
+        notifyDataSetChanged();
     }
 
     @NonNull

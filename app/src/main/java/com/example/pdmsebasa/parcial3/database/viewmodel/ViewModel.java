@@ -3,7 +3,9 @@ package com.example.pdmsebasa.parcial3.database.viewmodel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
 
+import com.example.pdmsebasa.parcial3.database.daos.ProductoDAO;
 import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
@@ -102,7 +104,7 @@ public class ViewModel extends AndroidViewModel {
      * Inserta un Producto en la bd
      */
     public void insert(Producto m) {
-        productoRepo.insert(m);
+        new InsertProductAsyncTask(productoRepo).execute(m);
     }
 
     /**
@@ -131,5 +133,21 @@ public class ViewModel extends AndroidViewModel {
      */
     public LiveData<List<Producto>> getAllProducto() {
         return productoRepo.getAll();
+    }
+
+
+    public static class InsertProductAsyncTask extends AsyncTask<Producto, Void, Void>{
+
+        private ProductoRepo productoDAO;
+
+        public InsertProductAsyncTask(ProductoRepo productoDAO) {
+            this.productoDAO = productoDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Producto... productos) {
+            productoDAO.insert(productos[0]);
+            return null;
+        }
     }
 }
