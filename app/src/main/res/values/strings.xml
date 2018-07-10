@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Parcial3</string>
+    <string name="key_token">TOKEN</string>
 </resources>
