@@ -10,5 +10,6 @@
     <string name="ingrese_password">Enter password</string>
     <string name="ingrese_otra_vez_password">Enter password again</string>
     <string name="register">REGISTER</string>
+    <string name="name">Name</string>
 
 </resources>

@@ -10,5 +10,6 @@
     <string name="ingrese_password">Ingrese contraseña</string>
     <string name="ingrese_otra_vez_password">Ingrese otra vez contraseña</string>
     <string name="register">REGISTRAR</string>
+    <string name="name">Nombre</string>
 
 </resources>
