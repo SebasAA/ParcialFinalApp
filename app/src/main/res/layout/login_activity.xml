@@ -6,21 +6,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
     tools:context=".LoginActivity"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     >
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="30dp"
         android:focusable="true"
         android:focusableInTouchMode="true">
 
 
         <LinearLayout
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -36,11 +35,10 @@
                     android:layout_height="110dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/canvas" />
+                    android:src="@drawable/cutecharms" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Provisional"
                     android:textAppearance="@style/ThemeOverlay.AppCompat"
                     android:layout_below="@id/imagepaper"
                     android:textAlignment="center"
