@@ -41,7 +41,7 @@ public interface ProductoDAO {
      * @param id id del producto a eliminar
      */
     @Query("DELETE FROM producto WHERE id=:id")
-    void deleteById(int id);
+    void deleteById(String id);
 
     /**
      * Obtiene la lista de todos los producots ordenado por nombre en orden ascendente
