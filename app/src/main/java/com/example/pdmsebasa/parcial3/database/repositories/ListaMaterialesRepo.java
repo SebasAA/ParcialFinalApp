@@ -42,7 +42,7 @@ public class ListaMaterialesRepo {
     /**
      * Elimina un ListaMateriales en la bd
      */
-    public void delete(ListaMateriales m) {
+    public void deleteById(ListaMateriales m) {
         mListaMaterialesDao.deleteById(m.getId());
     }
 
@@ -62,5 +62,6 @@ public class ListaMaterialesRepo {
     public LiveData<List<ListaMateriales>> getAllByProducto(int id) {
         return mListaMaterialesDao.getByIdProducto(id);
     }
+
 
 }
