@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.pdmsebasa.parcial3.R;
 import com.example.pdmsebasa.parcial3.api.CuteCharmsAPI;
 import com.example.pdmsebasa.parcial3.api.deserializers.TokenDeserializer;
+import com.example.pdmsebasa.parcial3.api.deserializers.UserDeserializer;
 import com.example.pdmsebasa.parcial3.utils.Util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void openRegisterActivity(){
+    private void openRegisterActivity() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
@@ -86,9 +87,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
                     saveToken(response.body());
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
-                }else{
+                    getRol(response.body());
+                } else {
                     Toast.makeText(getApplicationContext(), R.string.text_wrong_credentials_error, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void getRol(String token) {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(String.class, new TokenDeserializer())
+                .registerTypeAdapter(String.class, new UserDeserializer())
                 .create();
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(CuteCharmsAPI.END_POINT)
@@ -113,25 +113,32 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.code() == 200) {
-                    Intent intent;
-                    boolean isAdmin = false;
-                    if (!response.body().equals("")) {
+                    System.out.println("RESPONSE "+response.toString());
+                    boolean isAdmin;
+                    if (response.body().equals("customer")){
+                        isAdmin = false;
+                    }else{
                         isAdmin = true;
-                        intent = new Intent(LoginActivity.this, MainActivity.class);
-                    /*}else{
-                        //intent=new Intent(LoginActivity.this,)
-                    }*/
-                        SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.putBoolean(getString(R.string.key_admin), isAdmin);
-                        editor.apply();
-                        startActivity(intent);
                     }
+
+                    Intent intent;
+                    if (isAdmin) {
+                        intent = new Intent(LoginActivity.this, MainActivity.class);
+                    } else {
+                        intent = new Intent(LoginActivity.this, MainActivityUser.class);
+                    }
+                    startActivity(intent);
+
+                    SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean(getString(R.string.key_admin), isAdmin);
+                    editor.apply();
                 }
 
             }
+
             @Override
-            public void onFailure (Call < String > call, Throwable t){
+            public void onFailure(Call<String> call, Throwable t) {
                 t.printStackTrace();
             }
         });
