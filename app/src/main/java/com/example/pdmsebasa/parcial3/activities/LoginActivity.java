@@ -10,6 +10,8 @@ import android.transition.Fade;
 import android.transition.Slide;
 import android.view.Window;
 
+import com.example.pdmsebasa.parcial3.R;
+
 public class LoginActivity extends AppCompatActivity {
 
     TextInputEditText username, password;
@@ -20,8 +22,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            getWindow().setEnterTransition(new Fade().setDuration(1000));
+            getWindow().setEnterTransition(new Explode());
+            getWindow().setExitTransition(null);
+            getWindow().setAllowEnterTransitionOverlap(true);
         }
+        setContentView(R.layout.login_activity);
         bindViews();
     }
 
