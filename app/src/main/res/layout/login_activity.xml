@@ -44,7 +44,7 @@
                     android:textAppearance="@style/ThemeOverlay.AppCompat"
                     android:layout_below="@id/imagepaper"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="#000000"
                     android:textSize="24sp" />
 
             </RelativeLayout>
@@ -100,7 +100,7 @@
 
                 android:background="@color/colorAccent"
                 android:text="Login"
-                android:textColor="@color/white" />
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 
