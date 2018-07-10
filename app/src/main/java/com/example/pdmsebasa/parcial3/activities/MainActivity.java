@@ -1,7 +1,7 @@
 package com.example.pdmsebasa.parcial3.activities;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.pdmsebasa.parcial3.R;
+import com.example.pdmsebasa.parcial3.api.ClientRequest;
+import com.example.pdmsebasa.parcial3.database.viewmodel.ViewModel;
 import com.example.pdmsebasa.parcial3.fragments.HomeFragment;
 import com.example.pdmsebasa.parcial3.fragments.ProductListFragment;
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity{
 
     private DrawerLayout drawerLayout;
     private Boolean isFirstEntry = true;
+
+    private ViewModel viewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,9 +40,11 @@ public class MainActivity extends AppCompatActivity{
                 isFirstEntry = savedInstanceState.getBoolean("FIRST");
             }
         }
-
         setupToolbar();
         setupDrawer();
+        setHomeFragment();
+        viewModel= ViewModelProviders.of(this).get(ViewModel.class);
+        requestThings();
     }
 
     private void setupToolbar(){
@@ -52,12 +58,10 @@ public class MainActivity extends AppCompatActivity{
     private void setupDrawer(){
         drawerLayout = findViewById(R.id.drawerLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
-        Menu menu = navigationView.getMenu();
 
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
             navigationView.getMenu().performIdentifierAction(R.id.drawer_home_item, 0);
-            setHomeFragment();
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -69,12 +73,6 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     case R.id.drawer_products_item:
                         setProductFragment();
-                        break;
-                    case R.id.drawer_materials_item:
-                        break;
-                    case R.id.drawer_logout_item:
-                        logout();
-                        break;
                 }
                 drawerLayout.closeDrawers();
                 return true;
@@ -94,17 +92,6 @@ public class MainActivity extends AppCompatActivity{
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new ProductListFragment());
         fragmentTransaction.commit();
-    }
-
-    private void logout(){
-        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
-        editor.apply();
-
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override
@@ -131,4 +118,15 @@ public class MainActivity extends AppCompatActivity{
         super.onSaveInstanceState(outState);
         outState.putBoolean("FIRST", false);
     }
+
+    private void requestThings(){
+        ClientRequest.getAllProducts(viewModel, this, getToken());
+    }
+
+    private String getToken(){
+        SharedPreferences preferences=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        return preferences.getString(getString(R.string.key_token), "");
+    }
+
+
 }
