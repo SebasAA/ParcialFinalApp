@@ -13,10 +13,18 @@ import com.example.pdmsebasa.parcial3.database.entities.Material;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
 @Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1)
+/**
+ *Clase para la creacion de la base de datos
+ */
 public abstract class HealthMedDatabase extends RoomDatabase {
 
     private static HealthMedDatabase INSTANCE;
 
+    /**
+     * Obtiene una instancia de la base de datos
+     *
+     * @param context Contexto
+     */
     public static HealthMedDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (HealthMedDatabase.class) {
@@ -30,9 +38,18 @@ public abstract class HealthMedDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    /**
+     *Referencia al dao de materiales
+     */
     public abstract MaterialDAO materialDAO();
 
+    /**
+     *Referencia al dao de productos
+     */
     public abstract ProductoDAO productoDAO();
 
+    /**
+     *Referencia al dao de listamateriales
+     */
     public abstract ListaMaterialesDAO listaMaterialesDAO();
 }
