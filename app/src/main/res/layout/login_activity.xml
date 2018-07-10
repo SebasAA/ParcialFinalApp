@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
-    tools:context=".LoginActivity"
+
     android:background="@color/colorPrimary"
     >
 
@@ -19,10 +19,11 @@
 
 
         <LinearLayout
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="40dp"
+            android:layout_centerVertical="false"
             android:id="@+id/mainLayout"
             android:orientation="vertical">
             <RelativeLayout
@@ -33,7 +34,7 @@
                     android:id="@+id/imagepaper"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:layout_alignParentStart="true"
+
                     android:layout_alignParentTop="true"
                     android:src="@drawable/cutecharms" />
                 <TextView
@@ -90,6 +91,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="9dp"
                 android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_horizontal"
