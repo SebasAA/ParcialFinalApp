@@ -69,12 +69,15 @@
             android:id="@+id/input_material"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
             android:hint="Nombre del material"
             android:inputType="text"
             android:textColor="#000000"
             android:textSize="16dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="85dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
