@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+
+    android:id="@+id/register"
+    android:background="@color/colorPrimary"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="false"
+            android:id="@+id/mainLayout"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/logo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/newaccount" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:text="Registrarse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/ThemeOverlay.AppCompat"
+                android:layout_below="@id/imagepaper"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+
+
+            <!-- Email Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:id="@+id/user"
+                >
+
+                <EditText android:id="@+id/input_rnickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Ingrese nickname"
+                    android:textSize="16dp"
+                    android:textColor="#000000"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Password Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/rpass"
+                >
+                <EditText android:id="@+id/input_rpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Ingrese password"
+                    android:textSize="16dp"
+                    android:textColor="#000000"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/confirmpass"
+                >
+                <EditText android:id="@+id/conf_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Ingrese otra vez password"
+                    android:textSize="16dp"
+                    android:textColor="#000000"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="8dp"
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/confirmpass"
+                android:layout_marginBottom="5dp"
+
+                android:background="@color/colorAccent"
+                android:text="REGISTER"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
