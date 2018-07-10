@@ -122,7 +122,7 @@ public class MainActivityUser extends AppCompatActivity{
     private void logout(){
         SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove(getString(R.string.key_token));
+        editor.clear();
         editor.apply();
 
         Intent intent = new Intent(this, LoginActivity.class);

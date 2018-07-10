@@ -30,7 +30,27 @@ public class ProductListFragment extends Fragment{
         RecyclerView recyclerView = view.findViewById(R.id.generic_list_fragment_recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(container.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        ProductoAdapter adapter = new ProductoAdapter(list);
+        ProductoAdapter adapter = new ProductoAdapter(list) {
+            @Override
+            protected void itemOnClick(Producto producto) {
+
+            }
+
+            @Override
+            protected void moreOnClick(Producto producto) {
+
+            }
+
+            @Override
+            protected void lessOnClick(Producto producto) {
+
+            }
+
+            @Override
+            public void quantityOnClick(Producto producto) {
+
+            }
+        };
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
