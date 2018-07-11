@@ -1,152 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:fillViewport="true"
-    tools:context=".activities.MainActivity"
     android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.MainActivity"
     tools:showIn="@layout/about_us">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Historia"
-        android:textAllCaps="true"
-        android:layout_margin="16dp"
-        android:textColor="#000"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/story" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Información de contacto adicional"
-        android:textAllCaps="true"
-        android:layout_margin="16dp"
-        android:textColor="#000"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginBottom="4dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
+            android:layout_margin="16dp"
+            android:text="Historia"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#000" />
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_email_black_24dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/story" />
 
-            <TextView
-                android:id="@+id/gmail"
-                android:layout_width="0dp"
-                android:layout_weight="7"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="cutecharmsv@gmail.com"
-                 />
-
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Información de contacto adicional"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#000" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/colorBackground"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_web_black_24dp" />
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/webpage"
-                android:layout_width="0dp"
-                android:layout_weight="7"
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_email_black_24dp" />
+
+                <TextView
+                    android:id="@+id/gmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="7"
+                    android:text="cutecharmsv@gmail.com" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="cupsartanddesing.jimdo.com" />
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_web_black_24dp" />
+
+                <TextView
+                    android:id="@+id/webpage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="7"
+                    android:text="cupsartanddesing.jimdo.com" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Síguenos en nuestras redes sociales"
-        android:textAllCaps="true"
-        android:layout_margin="16dp"
-        android:textColor="#000"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RelativeLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:text="Síguenos en nuestras redes sociales"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#000" />
 
-            <ImageView
-                android:id="@+id/pinterest"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/ic_pinterest"
-                android:layout_alignParentLeft="true" />
-
-            <ImageView
-                android:id="@+id/instagram"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_toRightOf="@id/pinterest"
-                android:src="@drawable/ic_instagram" />
-
-            <ImageView
-                android:id="@+id/whatsapp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_below="@id/pinterest"
-                android:src="@drawable/ic_whatsapp" />
-            <ImageView
-                android:id="@+id/telegram"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_below="@id/instagram"
-                android:layout_toRightOf="@id/whatsapp"
-                android:src="@drawable/ic_telegram" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="7"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/social_username" />
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp">
+
+                <ImageView
+                    android:id="@+id/pinterest"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/ic_pinterest" />
+
+                <ImageView
+                    android:id="@+id/instagram"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_toRightOf="@id/pinterest"
+                    android:src="@drawable/ic_instagram" />
+
+                <ImageView
+                    android:id="@+id/whatsapp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@id/pinterest"
+                    android:src="@drawable/ic_whatsapp" />
+
+                <ImageView
+                    android:id="@+id/telegram"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_below="@id/instagram"
+                    android:layout_toRightOf="@id/whatsapp"
+                    android:src="@drawable/ic_telegram" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:text="@string/social_username" />
 
 
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
