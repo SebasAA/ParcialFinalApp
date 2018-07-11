@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pdmsebasa.parcial3.R;
+import com.example.pdmsebasa.parcial3.api.CuteCharmsAPI;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -47,6 +49,12 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
         price_and_gain = "$"+ ProductoItem.getPrice() + " - " + truncFloat(gain);
         holder.name.setText(ProductoItem.getName());
         holder.price.setText(price_and_gain);
+        if(ProductoItem.getProductImage()==null){
+            Picasso.get().load(R.drawable.cutecharms).into(holder.image);
+        }else{
+            System.out.println(CuteCharmsAPI.END_POINT+ProductoItem.getProductImage().replace("uploads\\", "uploads//"));
+            Picasso.get().load(CuteCharmsAPI.END_POINT+ProductoItem.getProductImage().replace("uploads\\", "uploads//")).error(R.drawable.cutecharms).into(holder.image);
+        }
         holder.quantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,12 +98,13 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView less, more;
+        ImageView less, more, image;
         private TextView name, price, quantity;
         private View itemView;
         public ViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
+            image=itemView.findViewById(R.id.imageView);
             name = itemView.findViewById(R.id.venta_precio);
             price = itemView.findViewById(R.id.venta_nombre_cliente2);//change id later
             quantity = itemView.findViewById(R.id.textView2);
