@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pdmsebasa.parcial3.R;
-import com.example.pdmsebasa.parcial3.database.entities.Producto;
+import com.example.pdmsebasa.parcial3.database.entities.Material;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -16,16 +16,16 @@ import java.util.List;
 
 public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHolder> {
 
-    private List<Producto> list = new ArrayList<>();
+    private List<Material> list = new ArrayList<>();
 
-    public MaterialAdapter(List<Producto> list) {
+    public MaterialAdapter(List<Material> list) {
         this.list = list;
     }
 
     /**
      * @param list Lista a mostrar en {@link RecyclerView}
      */
-    public void setList(List<Producto> list) {
+    public void setList(List<Material> list) {
         this.list = list;
     }
 
@@ -39,11 +39,10 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Producto ProductoItem = list.get(position);
+        Material MaterialItem = list.get(position);
         String price_and_gain;
-        Float gain = ProductoItem.getPrice() - ProductoItem.getCosto();
-        price_and_gain = "$" + ProductoItem.getPrice() + " - " + truncFloat(gain);
-        holder.name.setText(ProductoItem.getName());
+        price_and_gain = "$" + MaterialItem.getCosto();
+        holder.name.setText(MaterialItem.getName());
         holder.price.setText(price_and_gain);
     }
 
