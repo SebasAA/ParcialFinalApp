@@ -1,5 +1,6 @@
 package com.example.pdmsebasa.parcial3.activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText username, password;
     AppCompatButton button;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,6 +76,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String user, String pass) {
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(String.class, new TokenDeserializer())
                 .create();
@@ -89,13 +96,15 @@ public class LoginActivity extends AppCompatActivity {
                     saveToken(response.body());
                     getRol(response.body());
                 } else {
-                    Toast.makeText(getApplicationContext(), R.string.text_wrong_credentials_error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Wrong credetials", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 t.printStackTrace();
+                progressDialog.dismiss();
             }
         });
     }
@@ -123,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean(getString(R.string.key_admin), isAdmin);
+                    editor.putBoolean("ADMIN", isAdmin);
                     editor.apply();
 
                     Intent intent;
@@ -132,6 +141,8 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         intent = new Intent(LoginActivity.this, MainActivityUser.class);
                     }
+
+                    progressDialog.dismiss();
                     startActivity(intent);
                     finish();
                 }
@@ -141,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 t.printStackTrace();
+                progressDialog.dismiss();
             }
         });
     }

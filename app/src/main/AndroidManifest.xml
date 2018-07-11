@@ -19,10 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"/>
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MainActivityUser"/>
-        <activity android:name=".activities.AboutUsActivity"/>
+        <activity android:name=".activities.MainActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
+        <activity android:name=".activities.RegisterActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
+        <activity android:name=".activities.MainActivityUser"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
+        <activity android:name=".activities.AboutUsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
     </application>
 
 </manifest>

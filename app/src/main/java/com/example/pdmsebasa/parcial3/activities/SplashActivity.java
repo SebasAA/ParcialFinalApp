@@ -44,6 +44,6 @@ public class SplashActivity extends AppCompatActivity{
 
     private Boolean isAdmin(){
         SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean(getString(R.string.key_admin), false);
+        return sharedPreferences.getBoolean("ADMIN", false);
     }
 }

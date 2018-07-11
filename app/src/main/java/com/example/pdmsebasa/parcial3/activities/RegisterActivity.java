@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
                 if (!password.equals(confirm)){
-                    Toast.makeText(getApplicationContext(), R.string.text_password_match_error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerUser.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(getApplicationContext(), R.string.text_user_created, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
