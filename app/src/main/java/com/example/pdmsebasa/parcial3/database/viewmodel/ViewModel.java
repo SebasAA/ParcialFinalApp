@@ -3,6 +3,7 @@ package com.example.pdmsebasa.parcial3.database.viewmodel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
 
 import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
@@ -29,7 +30,8 @@ public class ViewModel extends AndroidViewModel {
      * Inserta un ListaMateriales en la bd
      */
     public void insert(ListaMateriales m) {
-        listaMaterialesRepo.insert(m);
+
+        new InsertListaMaterialesAsyncTask(listaMaterialesRepo).execute(m);
     }
 
     /**
@@ -67,7 +69,7 @@ public class ViewModel extends AndroidViewModel {
      * Inserta un material en la bd
      */
     public void insert(Material m) {
-        materialRepo.insert(m);
+        new InsertMaterialAsyncTask(materialRepo).execute(m);
     }
 
     /**
@@ -102,7 +104,7 @@ public class ViewModel extends AndroidViewModel {
      * Inserta un Producto en la bd
      */
     public void insert(Producto m) {
-        productoRepo.insert(m);
+        new InsertProductAsyncTask(productoRepo).execute(m);
     }
 
     /**
@@ -131,5 +133,52 @@ public class ViewModel extends AndroidViewModel {
      */
     public LiveData<List<Producto>> getAllProducto() {
         return productoRepo.getAll();
+    }
+
+
+    public static class InsertProductAsyncTask extends AsyncTask<Producto, Void, Void>{
+
+        private ProductoRepo productoDAO;
+
+        public InsertProductAsyncTask(ProductoRepo productoDAO) {
+            this.productoDAO = productoDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Producto... productos) {
+            productoDAO.insert(productos[0]);
+            return null;
+        }
+    }
+
+    public static class InsertMaterialAsyncTask extends AsyncTask<Material, Void, Void>{
+
+        private MaterialRepo materialDAO;
+
+        public InsertMaterialAsyncTask(MaterialRepo materialDAO) {
+            this.materialDAO = materialDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Material... materials) {
+            materialDAO.insert(materials[0]);
+            return null;
+        }
+    }
+
+    public static class InsertListaMaterialesAsyncTask extends AsyncTask<ListaMateriales, Void, Void>{
+
+        private ListaMaterialesRepo listaMaterialesRepo;
+
+        public InsertListaMaterialesAsyncTask(ListaMaterialesRepo listaMaterialesRepo) {
+            this.listaMaterialesRepo = listaMaterialesRepo;
+        }
+
+
+        @Override
+        protected Void doInBackground(ListaMateriales... listaMateriales) {
+            listaMaterialesRepo.insert(listaMateriales[0]);
+            return null;
+        }
     }
 }

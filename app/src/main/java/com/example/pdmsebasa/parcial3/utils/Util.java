@@ -28,7 +28,7 @@ public class Util {
         return null;
     }
 
-    private static String sha1(String txt) {
+    public static String sha1(String txt) {
         return getHash(txt, "SHA1");
     }
 

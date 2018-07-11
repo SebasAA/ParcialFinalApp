@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHolder> {
+public abstract class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHolder> {
 
     private List<Material> list = new ArrayList<>();
 
@@ -22,6 +22,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
         this.list = list;
     }
 
+    //TODO: AUN NO EXISTE EL LAYOUT PARA ESTE ITEM DE MATERIAL
     /**
      * @param list Lista a mostrar en {@link RecyclerView}
      */
@@ -44,7 +45,16 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
         price_and_gain = "$" + MaterialItem.getCosto();
         holder.name.setText(MaterialItem.getName());
         holder.price.setText(price_and_gain);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnClick(list.get(position));
+            }
+        });
+
     }
+
+    protected abstract void itemOnClick(Material material);
 
     @Override
     public int getItemCount() {
@@ -58,9 +68,11 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView name, price;
+        private View itemView;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView = itemView;
             name = itemView.findViewById(R.id.generic_cardview_textView);
             price = itemView.findViewById(R.id.generic_cardview_textView);//change id later
 

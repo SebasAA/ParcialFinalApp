@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
-    android:layout_gravity="center"
     tools:context=".activities.RegisterActivity"
+    android:layout_gravity="center"
     android:id="@+id/register"
     android:background="@color/colorPrimary"
     >
@@ -35,12 +35,14 @@
                     android:id="@+id/logo2"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/ic_new_account" />
+                    android:src="@drawable/ic_new_account"
+                    android:layout_alignParentLeft="true" />
 
 
             </RelativeLayout>
+
 
             <!-- Email Label -->
             <android.support.design.widget.TextInputLayout

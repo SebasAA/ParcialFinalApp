@@ -1,6 +1,5 @@
 package com.example.pdmsebasa.parcial3.activities;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,17 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.pdmsebasa.parcial3.R;
-import com.example.pdmsebasa.parcial3.api.ClientRequest;
-import com.example.pdmsebasa.parcial3.database.viewmodel.ViewModel;
 import com.example.pdmsebasa.parcial3.fragments.HomeFragment;
 import com.example.pdmsebasa.parcial3.fragments.ProductListFragment;
+import com.example.pdmsebasa.parcial3.fragments.ProductListUserFragment;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivityUser extends AppCompatActivity{
 
     private DrawerLayout drawerLayout;
     private Boolean isFirstEntry = true;
-
-    private ViewModel viewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,10 +37,9 @@ public class MainActivity extends AppCompatActivity{
                 isFirstEntry = savedInstanceState.getBoolean("FIRST");
             }
         }
+
         setupToolbar();
         setupDrawer();
-        viewModel= ViewModelProviders.of(this).get(ViewModel.class);
-        requestThings();
     }
 
     private void setupToolbar(){
@@ -58,29 +53,28 @@ public class MainActivity extends AppCompatActivity{
     private void setupDrawer(){
         drawerLayout = findViewById(R.id.drawerLayout);
         NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.getMenu().clear();
+        navigationView.inflateMenu(R.menu.drawer_menu_user);
 
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
             navigationView.getMenu().performIdentifierAction(R.id.drawer_home_item, 0);
-            setHomeFragment();
+            setProductFragment();
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 switch (item.getItemId()){
-                    case R.id.drawer_home_item:
-                        setHomeFragment();
-                        break;
                     case R.id.drawer_products_item:
                         setProductFragment();
                         break;
-                    case R.id.drawer_materials_item:
+                    case R.id.drawer_about_us_item:
+                        openAboutUsActivity();
                         break;
                     case R.id.drawer_logout_item:
                         logout();
                         break;
-
                 }
                 drawerLayout.closeDrawers();
                 return true;
@@ -88,18 +82,16 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    private void setHomeFragment(){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new HomeFragment());
-        fragmentTransaction.commit();
-    }
-
     private void setProductFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new ProductListFragment());
+        fragmentTransaction.replace(R.id.content_frame, new ProductListUserFragment());
         fragmentTransaction.commit();
+    }
+
+    private void openAboutUsActivity(){
+        Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -125,15 +117,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("FIRST", false);
-    }
-
-    private void requestThings(){
-        ClientRequest.getAllProducts(viewModel, this, getToken());
-    }
-
-    private String getToken(){
-        SharedPreferences preferences=getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        return preferences.getString(getString(R.string.key_token), "");
     }
 
     private void logout(){

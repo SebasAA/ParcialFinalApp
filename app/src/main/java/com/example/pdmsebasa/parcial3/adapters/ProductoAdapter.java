@@ -28,13 +28,14 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
      */
     public void setList(List<Producto> list){
         this.list = list;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.producto_item_user, parent, false);
+        View view = inflater.inflate(R.layout.producto_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -65,7 +66,17 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
                 moreOnClick(list.get(position));
             }
         });
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnClick(list.get(position));
+            }
+        });
     }
+
+    protected abstract void itemOnClick(Producto producto);
 
     protected abstract void moreOnClick(Producto producto);
 
@@ -81,9 +92,10 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView less, more;
         private TextView name, price, quantity;
-
+        private View itemView;
         public ViewHolder(View itemView) {
             super(itemView);
+            this.itemView = itemView;
             name = itemView.findViewById(R.id.venta_precio);
             price = itemView.findViewById(R.id.venta_nombre_cliente2);//change id later
             quantity = itemView.findViewById(R.id.textView2);

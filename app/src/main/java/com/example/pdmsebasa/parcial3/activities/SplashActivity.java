@@ -27,7 +27,11 @@ public class SplashActivity extends AppCompatActivity{
         if (getToken().equals("")){
             intent = new Intent(this, LoginActivity.class);
         }else{
-            intent = new Intent(this, MainActivity.class);
+            if (isAdmin()){
+                intent = new Intent(this, MainActivity.class);
+            }else{
+                intent = new Intent(this, MainActivityUser.class);
+            }
         }
         startActivity(intent);
         finish();
@@ -36,5 +40,10 @@ public class SplashActivity extends AppCompatActivity{
     private String getToken(){
         SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         return sharedPreferences.getString(getString(R.string.key_token), "");
+    }
+
+    private Boolean isAdmin(){
+        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(getString(R.string.key_admin), false);
     }
 }
