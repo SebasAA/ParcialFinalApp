@@ -22,6 +22,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.ViewHo
         this.list = list;
     }
 
+    //TODO: AUN NO EXISTE EL LAYOUT PARA ESTE ITEM DE MATERIAL
     /**
      * @param list Lista a mostrar en {@link RecyclerView}
      */

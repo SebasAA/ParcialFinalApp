@@ -42,7 +42,7 @@ public class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapte
         Producto ProductoItem = list.get(position);
         String price_and_gain;
         Float gain = ProductoItem.getPrice() - ProductoItem.getCosto();
-        price_and_gain = "$" + ProductoItem.getPrice() + " - " + truncFloat(gain);
+        price_and_gain = "$" + ProductoItem.getPrice();
         holder.name.setText(ProductoItem.getName());
         holder.price.setText(price_and_gain);
     }
