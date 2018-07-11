@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapter.ViewHolder> {
+public abstract class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapter.ViewHolder> {
 
     private List<Producto> list = new ArrayList<>();
 
@@ -45,7 +45,15 @@ public class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapte
         price_and_gain = "$" + ProductoItem.getPrice();
         holder.name.setText(ProductoItem.getName());
         holder.price.setText(price_and_gain);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnClick(list.get(position));
+            }
+        });
     }
+
+    protected abstract void itemOnClick(Producto producto);
 
     @Override
     public int getItemCount() {
@@ -59,9 +67,11 @@ public class ProductoUserAdapter extends RecyclerView.Adapter<ProductoUserAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView name, price;
+        private View itemView;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView = itemView;
             name = itemView.findViewById(R.id.nombreProducto);
             price = itemView.findViewById(R.id.precioProducto);//change id later
         }

@@ -65,7 +65,17 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
                 moreOnClick(list.get(position));
             }
         });
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnClick(list.get(position));
+            }
+        });
     }
+
+    protected abstract void itemOnClick(Producto producto);
 
     protected abstract void moreOnClick(Producto producto);
 
@@ -81,9 +91,10 @@ public abstract class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapt
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView less, more;
         private TextView name, price, quantity;
-
+        private View itemView;
         public ViewHolder(View itemView) {
             super(itemView);
+            itemView = itemView;
             name = itemView.findViewById(R.id.venta_precio);
             price = itemView.findViewById(R.id.venta_nombre_cliente2);//change id later
             quantity = itemView.findViewById(R.id.textView2);
