@@ -2,6 +2,7 @@ package com.example.pdmsebasa.parcial3.activities;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity{
         }
         setupToolbar();
         setupDrawer();
-        setHomeFragment();
         viewModel= ViewModelProviders.of(this).get(ViewModel.class);
         requestThings();
     }
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity{
         if (isFirstEntry) {
             navigationView.setCheckedItem(R.id.drawer_home_item);
             navigationView.getMenu().performIdentifierAction(R.id.drawer_home_item, 0);
+            setHomeFragment();
         }
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     case R.id.drawer_products_item:
                         setProductFragment();
+                        break;
+                    case R.id.drawer_materials_item:
+                        break;
+                    case R.id.drawer_logout_item:
+                        logout();
+                        break;
+
                 }
                 drawerLayout.closeDrawers();
                 return true;
@@ -128,5 +136,14 @@ public class MainActivity extends AppCompatActivity{
         return preferences.getString(getString(R.string.key_token), "");
     }
 
+    private void logout(){
+        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
 
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

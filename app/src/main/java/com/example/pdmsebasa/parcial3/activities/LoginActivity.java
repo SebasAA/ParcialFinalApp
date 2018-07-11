@@ -121,6 +121,11 @@ public class LoginActivity extends AppCompatActivity {
                         isAdmin = true;
                     }
 
+                    SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean(getString(R.string.key_admin), isAdmin);
+                    editor.apply();
+
                     Intent intent;
                     if (isAdmin) {
                         intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -128,11 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent = new Intent(LoginActivity.this, MainActivityUser.class);
                     }
                     startActivity(intent);
-
-                    SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean(getString(R.string.key_admin), isAdmin);
-                    editor.apply();
+                    finish();
                 }
 
             }
