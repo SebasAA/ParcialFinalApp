@@ -5,16 +5,14 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
-    android:id="@+id/content_login"
-    tools:context=".activities.LoginActivity"
-    android:background="@color/colorPrimaryDark"
+
+    android:background="@color/colorPrimary"
     >
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="30dp"
         android:focusable="true"
         android:focusableInTouchMode="true">
@@ -24,7 +22,8 @@
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="40dp"
+            android:layout_centerVertical="false"
             android:id="@+id/mainLayout"
             android:orientation="vertical">
             <RelativeLayout
@@ -35,14 +34,12 @@
                     android:id="@+id/imagepaper"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
-                    android:layout_alignParentStart="true"
+
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/cutecharms"
-                    android:layout_alignParentLeft="true" />
+                    android:src="@drawable/cutecharms" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Provisional"
                     android:textAppearance="@style/ThemeOverlay.AppCompat"
                     android:layout_below="@id/imagepaper"
                     android:textAlignment="center"
@@ -63,11 +60,11 @@
                 android:layout_marginRight="16dp"
                 android:id="@+id/user"
                 >
-                <EditText android:id="@+id/input_email"
+                <EditText android:id="@+id/input_nickname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:hint="Email"
+                    android:inputType="text"
+                    android:hint="@string/nickname"
                     android:textSize="16dp"
                     android:textColor="#000000"
                     />
@@ -87,13 +84,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:textSize="16dp"
                     android:textColor="#000000"
                     />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="9dp"
                 android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -101,7 +99,19 @@
                 android:layout_below="@id/pass"
 
                 android:background="@color/colorAccent"
-                android:text="Login"
+                android:text="@string/login"
+                android:textColor="#ffffff" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="24dp"
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pass"
+
+                android:background="@color/colorAccent"
+                android:text="Register"
                 android:textColor="#ffffff" />
 
         </LinearLayout>

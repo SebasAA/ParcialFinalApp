@@ -9,11 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.example.pdmsebasa.parcial3.R;
 
@@ -22,11 +17,6 @@ public class SplashActivity extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-            getWindow().setExitTransition(new Explode());
-            getWindow().setAllowEnterTransitionOverlap(true);
-        }
         setContentView(R.layout.splash_activity);
 
         new Handler().postDelayed(this::startActivity, 3000);
@@ -37,20 +27,23 @@ public class SplashActivity extends AppCompatActivity{
         if (getToken().equals("")){
             intent = new Intent(this, LoginActivity.class);
         }else{
-            intent = new Intent(this, MainActivity.class);
+            if (isAdmin()){
+                intent = new Intent(this, MainActivity.class);
+            }else{
+                intent = new Intent(this, MainActivityUser.class);
+            }
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
-        }else{
-            startActivity(intent);
-        }
-
+        startActivity(intent);
         finish();
     }
 
     private String getToken(){
         SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
         return sharedPreferences.getString(getString(R.string.key_token), "");
+    }
+
+    private Boolean isAdmin(){
+        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("ADMIN", false);
     }
 }

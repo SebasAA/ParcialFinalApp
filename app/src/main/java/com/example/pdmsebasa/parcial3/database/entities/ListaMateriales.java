@@ -19,11 +19,11 @@ public class ListaMateriales {
     /**
      * Id del producto
      */
-    private int id_producto;
+    private String id_producto;
     /**
      * Id de material
      */
-    private int id_material;
+    private String id_material;
     /**
      * Cantidad del material
      */
@@ -31,12 +31,11 @@ public class ListaMateriales {
 
     /**
      * Constructor del Lista de materiales
-     *
      * @param id_producto id del producto
      * @param id_material id del material
      * @param cantidad    cantidad del material a registrar
      */
-    public ListaMateriales(int id_producto, int id_material, int cantidad) {
+    public ListaMateriales(String id_producto, String id_material, int cantidad) {
         this.id_producto = id_producto;
         this.id_material = id_material;
         this.cantidad = cantidad;
@@ -59,28 +58,30 @@ public class ListaMateriales {
     /**
      * Obtiene id del producto
      */
-    public int getId_producto() {
+    public String getId_producto() {
         return id_producto;
     }
 
     /**
      * Setea id del producto
+     * @param id_producto
      */
-    public void setId_producto(int id_producto) {
+    public void setId_producto(String id_producto) {
         this.id_producto = id_producto;
     }
 
     /**
      * Obtiene id del material
      */
-    public int getId_material() {
+    public String getId_material() {
         return id_material;
     }
 
     /**
      * Setea id del material
+     * @param id_material
      */
-    public void setId_material(int id_material) {
+    public void setId_material(String id_material) {
         this.id_material = id_material;
     }
 

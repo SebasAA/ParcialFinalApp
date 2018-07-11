@@ -11,7 +11,7 @@ import com.example.pdmsebasa.parcial3.database.entities.ListaMateriales;
 import com.example.pdmsebasa.parcial3.database.entities.Material;
 import com.example.pdmsebasa.parcial3.database.entities.Producto;
 
-@android.arch.persistence.room.Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1)
+@android.arch.persistence.room.Database(entities = {Producto.class, Material.class, ListaMateriales.class}, version = 1, exportSchema = false)
 /**
  *Clase para la creacion de la base de datos
  */

@@ -14,34 +14,34 @@ public class Producto {
     @NonNull
     private String id;
     private String name;
-    private int id_lista_materiales;
     private float costo;
     private float price;
     private int stock;
     private int sold;
     private String category;
+    private String productImage;
 
     /**
      * Constructor de Producto
-     *
-     * @param id                  id del producto
+     *  @param id                  id del producto
      * @param name                nombre del producto
      * @param id_lista_materiales id de la lista de materiales que corresponden a el producto
-     * @param stock               cantidad de stock del producto
      * @param costo               costo del producto
      * @param price               precio de venta del producto
+     * @param stock               cantidad de stock del producto
      * @param sold                cantidad de productos vendidos
      * @param category            categoria a la que pertenece el producto
+     * @param productImage         imagen del producto
      */
-    public Producto(String id, String name, int id_lista_materiales, float costo, float price, int stock, int sold, String category) {
+    public Producto(String id, String name, float costo, float price, int stock, int sold, String category, String productImage) {
         this.id = id;
         this.name = name;
-        this.id_lista_materiales = id_lista_materiales;
         this.price = price;
         this.stock = stock;
         this.costo = costo;
         this.sold = sold;
         this.category = category;
+        this.productImage = productImage;
     }
 
     /**
@@ -55,18 +55,6 @@ public class Producto {
      */
     public void setId(String id) {
         this.id = id;
-    }
-    /**
-     * Obtener el id del la lista de materiales
-     */
-    public int getId_lista_materiales() {
-        return id_lista_materiales;
-    }
-    /**
-     * Setear el id del la lista de materiales
-     */
-    public void setId_lista_materiales(int id_lista_materiales) {
-        this.id_lista_materiales = id_lista_materiales;
     }
     /**
      * Obtener el costo de produccion del producto
@@ -141,5 +129,13 @@ public class Producto {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
     }
 }
