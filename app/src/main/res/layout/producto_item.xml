@@ -61,7 +61,7 @@
             android:layout_marginStart="8dp"
 
             android:layout_marginTop="8dp"
-            android:text="Precio unitario - Ganancia"
+            android:text="@string/price_per_unit_gain"
             android:textAlignment="gravity"
             android:textSize="12sp"
             android:textStyle="italic"

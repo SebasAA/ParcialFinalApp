@@ -72,7 +72,7 @@
         android:layout_marginBottom="2dp"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
-        android:text="Ganancia"
+        android:text="@string/gain"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/id_ganancia"
         app:layout_constraintStart_toStartOf="parent" />
@@ -84,7 +84,7 @@
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="104dp"
         android:layout_marginRight="104dp"
-        android:text="Gastos"
+        android:text="@string/costs"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/id_gastos"
         app:layout_constraintEnd_toEndOf="parent" />

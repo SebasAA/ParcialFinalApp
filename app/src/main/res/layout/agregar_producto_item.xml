@@ -60,7 +60,7 @@
             android:layout_marginStart="8dp"
 
             android:layout_marginTop="4dp"
-            android:text="Precio unitario"
+            android:text="@string/price_per_unit"
             android:textAlignment="gravity"
             android:textSize="12sp"
             android:textStyle="italic"

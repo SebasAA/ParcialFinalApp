@@ -2,7 +2,7 @@
     <string name="app_name">Cute Charms</string>
     <string name="key_token">TOKEN</string>
     <string name="text_empty_field_error">Este campo no debe estar vacío</string>
-    <string name = "story">Cute Charms es una tienda online donde puedes encontrar accesorios
+    <string name = "story_description">Cute Charms es una tienda online donde puedes encontrar accesorios
     y figuras personalizadas utilizando el material llamado Porcelanda Fría, también contamos con
     una variedad de productos sublimados que se personalizan con el diseño que el cliente desee,
     tales como camisas, tazas, botellas, jaras, entre otros.</string>
@@ -10,5 +10,22 @@
     <string name="ingrese_password">Ingrese contraseña</string>
     <string name="ingrese_otra_vez_password">Ingrese otra vez contraseña</string>
     <string name="register">REGISTRAR</string>
+    <string name="name">Nombre</string>
+    <string name="social_username">"@cutecharmsv"</string>
+    <string name="story">Historia</string>
+    <string name="contact_information">Información de contacto adicional</string>
+    <string name="follow_in_social_media">Síguenos en nuestras redes sociales</string>
+    <string name="production_price">Precio de Producción</string>
+    <string name="selling_price">Precio de Venta</string>
+    <string name="gain">Ganancia</string>
+    <string name="save">Guardar</string>
+    <string name="price_per_unit">Precio unitario</string>
+    <string name="costs">Gastos</string>
+    <string name="password">Contraseña</string>
+    <string name="nickname">Usuario</string>
+    <string name="login">Entrar</string>
+    <string name="price_per_unit_gain">Precio unitario - Ganancia</string>
+    <string name="search">Buscar</string>
+    <string name="customer">Cliente</string>
 
 </resources>
