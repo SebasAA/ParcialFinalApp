@@ -5,11 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_rectangle_grey"
+        android:text="AGREGAR PRODUCTO"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -17,9 +36,12 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:weightSum="3"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.307">
 
         <TextView
             android:id="@+id/textView3"
@@ -29,6 +51,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Cliente:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
@@ -37,21 +61,24 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="4dp"
             android:layout_weight="2"
-            android:hint="Nombre del Cliente :V" />
+            android:hint="Nombre del Cliente :V"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="345dp"
+        android:layout_height="286dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="62dp"></android.support.v7.widget.RecyclerView>
+        tools:layout_editor_absoluteY="134dp"
+        tools:ignore="MissingConstraints"></android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="46dp"
@@ -75,7 +102,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="80dp"
         android:orientation="horizontal"
         android:weightSum="3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,21 +116,28 @@
             android:layout_weight="1"
             android:text="Total:"
             android:textAlignment="center"
-            android:textStyle="bold"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="$1000"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="Guardar" />
+            android:text="Guardar"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
