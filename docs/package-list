@@ -1,0 +1,13 @@
+com.example.pdmsebasa.parcial3
+com.example.pdmsebasa.parcial3.activities
+com.example.pdmsebasa.parcial3.adapters
+com.example.pdmsebasa.parcial3.api
+com.example.pdmsebasa.parcial3.api.deserializers
+com.example.pdmsebasa.parcial3.api.models
+com.example.pdmsebasa.parcial3.database
+com.example.pdmsebasa.parcial3.database.daos
+com.example.pdmsebasa.parcial3.database.entities
+com.example.pdmsebasa.parcial3.database.repositories
+com.example.pdmsebasa.parcial3.database.viewmodel
+com.example.pdmsebasa.parcial3.fragments
+com.example.pdmsebasa.parcial3.utils
