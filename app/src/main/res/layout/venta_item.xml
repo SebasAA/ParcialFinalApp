@@ -26,7 +26,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Cliente"
+            android:text="@string/customer"
             android:textSize="10dp"
             app:layout_constraintBottom_toTopOf="@+id/venta_nombre_cliente"
             app:layout_constraintEnd_toEndOf="parent"

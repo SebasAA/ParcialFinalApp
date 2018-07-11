@@ -2,7 +2,7 @@
     <string name="app_name">Cute Charms</string>
     <string name="key_token">TOKEN</string>
     <string name="text_empty_field_error">Field must not be empty</string>
-    <string name = "story">Cute Charms is an online store where you can find accesories and
+    <string name = "story_description">Cute Charms is an online store where you can find accesories and
         customizable figures using Cold Porcelain, we also have a variety of sublimated products
         than can be customizable with the design the customer wishes like t-shirts, cups, bottles,
         jars, and others.</string>
@@ -11,5 +11,20 @@
     <string name="ingrese_otra_vez_password">Enter password again</string>
     <string name="register">REGISTER</string>
     <string name="name">Name</string>
-
+    <string name="social_username">"@cutecharmsv"</string>
+    <string name="story">Story</string>
+    <string name="contact_information">Contact extra information</string>
+    <string name="follow_in_social_media">Follow us in our social media</string>
+    <string name="production_price">Production price</string>
+    <string name="selling_price">Selling price</string>
+    <string name="gain">Gain</string>
+    <string name="save">Guardar</string>
+    <string name="price_per_unit">Precio unitario</string>
+    <string name="costs">Gastos</string>
+    <string name="password">Password</string>
+    <string name="nickname">NickName</string>
+    <string name="login">Login</string>
+    <string name="price_per_unit_gain">Price per unit - Gain</string>
+    <string name="search">Search</string>
+    <string name="customer">Customer</string>
 </resources>

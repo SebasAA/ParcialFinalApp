@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Historia"
+        android:text="@string/story"
         android:textAllCaps="true"
         android:layout_margin="16dp"
         android:textColor="#000"
@@ -23,12 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/story" />
+        android:text="@string/story_description" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Información de contacto adicional"
+        android:text="@string/contact_information"
         android:textAllCaps="true"
         android:layout_margin="16dp"
         android:textColor="#000"
@@ -92,7 +92,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Síguenos en nuestras redes sociales"
+        android:text="@string/follow_in_social_media"
         android:textAllCaps="true"
         android:layout_margin="16dp"
         android:textColor="#000"
