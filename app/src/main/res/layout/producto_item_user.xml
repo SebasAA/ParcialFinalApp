@@ -20,9 +20,12 @@
             android:layout_width="94dp"
             android:layout_height="96dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/cutecharms"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -30,27 +33,34 @@
             android:layout_width="86dp"
             android:layout_height="28dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="148dp"
             android:background="@drawable/rounded_rectangle_pink"
-            android:text="Nombre"
+            android:gravity="center"
             android:paddingBottom="4dp"
             android:paddingLeft="4dp"
-            android:textSize="20sp"
+            android:text="Nombre"
+            android:textAlignment="center"
+            android:textSize="14sp"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/precioProducto"
-            android:layout_width="64dp"
-            android:layout_height="49dp"
-
+            android:layout_width="50dp"
+            android:layout_height="33dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
             android:text="Precio: $00.00"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="111dp"
-            tools:layout_editor_absoluteY="146dp" />
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline" />
 
 
         <android.support.constraint.Guideline
